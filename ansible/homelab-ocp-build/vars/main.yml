@@ -1,0 +1,12 @@
+---
+# vars file for homelab-ocp-build
+smb_host: http://192.168.1.253
+smb_path: /media/
+iso_name: agent.x86_64.iso
+
+# vars defined in the vault
+# bmc_address: ""
+# bmc_user: ""
+# bmc_password: ""
+# pull_secret: ""
+

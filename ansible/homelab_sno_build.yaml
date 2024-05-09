@@ -1,0 +1,7 @@
+---
+- name: homelab ocp build
+  hosts: localhost
+  vars_files:
+    - ./homelab-ocp-build/vars/vars_in_a_vault.yaml
+  roles:
+    - role: "./homelab-ocp-build"

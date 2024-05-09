@@ -1,0 +1,12 @@
+apiVersion: v1alpha1
+kind: AgentConfig
+metadata:
+  name: sno-cluster
+rendezvousIP: {{ rendezvous_ip }}
+hosts:
+  - hostname: master-0
+    interfaces:
+      - name: eno1
+        macAddress: {{ server_mac }}
+    rootDeviceHints:
+      deviceName: /dev/nvme0n1

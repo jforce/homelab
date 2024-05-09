@@ -1,0 +1,58 @@
+---
+# tasks file for homelab-ocp-build
+# localhost prep and build
+
+- name: Start service httpd, if not started
+  ansible.builtin.service:
+    name: httpd
+    state: started
+  become: true
+
+- name: Create the httpd web server directory to host content
+  ansible.builtin.file:
+    path: /var/www/html/media
+    state: directory
+    mode: '0755'
+  become: true
+
+- name: Create the ocp build directory
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/ocp/shenzhen"
+    state: directory
+    mode: '0775'
+
+- name: Render templated build files
+  ansible.builtin.template:
+    src: agent-config.yaml.j2
+    dest: "{{ ansible_env.HOME }}/ocp/shenzhen/agent-config.yaml"
+
+- name: Render templated build files
+  ansible.builtin.template:
+    src: install-config.yaml.j2 
+    dest: "{{ ansible_env.HOME }}/ocp/shenzhen/install-config.yaml"
+
+- name: Download latest openshift-install binary
+  ansible.builtin.get_url:
+    url: https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/stable/openshift-install-linux.tar.gz 
+    decompress: true
+    dest: /usr/local/bin
+    mode: '0755'
+  become: true
+
+- name: Build ocp assisted installer bootable image
+  shell: openshift-install --dir "{{ ansible_env.HOME }}"/ocp/shenzhen agent create image
+
+- name: Copy bootable iso to web server
+  ansible.builtin.copy:
+    src: "{{ ansible_env.HOME }}/ocp/shenzhen/{{ iso_name }}"
+    dest: "/var/www/html{{ smb_path }}{{ iso_name }}"
+    owner: apache
+    mode: '0755'
+  become: true
+
+- name: Set httpd selinux contexts
+  community.general.sefcontext:
+    target: "/var/www/html{{ smb_path }}{{ iso_name }}"
+    setype: httpd_sys_rw_content_t
+    state: present
+  become: true

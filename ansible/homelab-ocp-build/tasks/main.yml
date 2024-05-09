@@ -1,0 +1,11 @@
+---
+# tasks file for homelab-ocp-build
+
+- name: localhost prep and build
+  ansible.builtin.include_tasks:
+    file: build.yaml
+
+- name: server boot and configuration
+  ansible.builtin.include_tasks:
+    file: install.yaml
+

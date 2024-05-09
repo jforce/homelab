@@ -1,0 +1,3 @@
+ansible/.vault_pass.txt
+misc/
+ansible/homelab-ocp-build/vars/vars_in_a_vault.yaml
