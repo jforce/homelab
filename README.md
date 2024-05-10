@@ -55,11 +55,11 @@ I bought the parts from a mix of AliExpress, eBay, Scan  and Amazon. I was able 
 * **Memory** - DIMMH1 was not recognising the installed memory module.
   - Resolved by [removing a case standoff](https://www.bleepingcomputer.com/forums/t/710239/supermicro-mbd-h11ssl-and-amd-epyc-7402-insane-memory-pmu-training-error-problem/) that was touching the underside of the board; only an issue due to using a server motherboard in a consumer case.
 * **Fans** - Supermicro fans were ramping up and down though using consumer grade fans.
-  - Resolved by setting the fan speed to max; it’s still pretty much dead silent thanks to the Noctuas and their anti-vibration mounts.
+  - Resolved by setting the fan speed to max; it’s still pretty much dead silent thanks to the Noctuas and their anti-vibration mounts. See [Supermicro fan speed ramps up and down](https://youtu.be/Qez9F4uhsw4?si=WQ60yUGlw3q9aG0e).
 * **Disks** - SNO requires two disks if wanting to use kubevirt.
   - Resolved by adding a second disk.
-* **BMC Licence** - "Not licensed to perform this request. The following licenses SUM DCMS OOB were needed"
-  - Resolved by [Reverse Engineering Supermicro IPMI](https://peterkleissner.com/2018/05/27/reverse-engineering-supermicro-ipmi/)
+* **BMC Licence** - "Not licensed to perform this request. The following licenses SUM DCMS OOB were needed".
+  - Resolved by [Reverse Engineering Supermicro IPMI](https://peterkleissner.com/2018/05/27/reverse-engineering-supermicro-ipmi/).
 
 ## Local Network
 

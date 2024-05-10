@@ -55,7 +55,7 @@
     headers:
       content-type: application/json
       Accept: application/json
-    body: '{"Boot":{"BootSourceOverrideEnabled":"Once","BootSourceOverrideMode":"UEFI","BootSourceOverrideTarget":"Cd"}}'
+    body: '{"Boot":{"BootSourceOverrideEnabled":"Once","BootSourceOverrideMode":"Legacy","BootSourceOverrideTarget":"UsbCd"}}'
     body_format: json
     validate_certs: false
     force_basic_auth: true
