@@ -26,5 +26,3 @@ SNO assisted/agent based installer using a custom iso.
 | Cluster network CIDR	      | 10.128.0.0/14  |
 | Cluster network host prefix | 23             |
 | Service network CIDR        | 172.30.0.0/16  |
-$ 
-
