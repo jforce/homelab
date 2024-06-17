@@ -8,6 +8,14 @@
     state: started
   become: true
 
+- name: Perrmit traffic in default zone for http service
+  ansible.posix.firewalld:
+    service: http
+    permanent: true
+    immediate: true
+    state: enabled
+  become: true
+
 - name: Create the httpd web server directory to host content
   ansible.builtin.file:
     path: /var/www/html/media
