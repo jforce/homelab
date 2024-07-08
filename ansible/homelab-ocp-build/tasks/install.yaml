@@ -26,7 +26,7 @@
     headers:
       content-type: application/json
       Accept: application/json
-    body: "{\"Host\": \"{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}\", \"Path\": \"{{ smb_path}}{{ iso_name }}\"}"
+    body: "{\"Host\": \"http://{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}\", \"Path\": \"{{ smb_path}}{{ iso_name }}\"}"
     body_format: json
     validate_certs: false
     force_basic_auth: true
@@ -46,20 +46,20 @@
     force_basic_auth: true
     return_content: true
 
-- name: SuperMicro - Set boot override
-  uri:
-    url: "https://{{ bmc_address }}/redfish/v1/Systems/1"
-    user: "{{ bmc_user }}"
-    password: "{{ bmc_password }}"
-    method: PATCH
-    headers:
-      content-type: application/json
-      Accept: application/json
-    body: '{"Boot":{"BootSourceOverrideEnabled":"Once","BootSourceOverrideMode":"Legacy","BootSourceOverrideTarget":"UsbCd"}}'
-    body_format: json
-    validate_certs: false
-    force_basic_auth: true
-    return_content: true
+    #- name: SuperMicro - Set boot override
+    #  uri:
+    #    url: "https://{{ bmc_address }}/redfish/v1/Systems/1"
+    #    user: "{{ bmc_user }}"
+    #    password: "{{ bmc_password }}"
+    #    method: PATCH
+    #    headers:
+    #      content-type: application/json
+    #      Accept: application/json
+    #    body: '{"Boot":{"BootSourceOverrideEnabled":"Once","BootSourceOverrideMode":"Legacy","BootSourceOverrideTarget":"UsbCd"}}'
+    #    body_format: json
+    #    validate_certs: false
+    #    force_basic_auth: true
+    #    return_content: true
 
 - name: SuperMicro - Power on
   community.general.redfish_command:
