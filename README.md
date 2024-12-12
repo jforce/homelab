@@ -37,14 +37,14 @@ I bought the parts from a mix of AliExpress, eBay, Scan  and Amazon. I was able 
 | PSU         | Super Flower LEADEX III HG 850w Gold PSU                                       |
 | SSD1        | Crucial P5 Plus 2TB M.2 PCIe Gen4 NVMe                                         |
 | SSD2        | Samsung SSD PM1735 HHHL PCIe card 1.6TB NVME SSD                               |
-| GPU         | GIGABYTE GT 1030 Silent Low Profile 2GB Graphics Card                          |
+| GPU         | NVIDIA Tesla P4 8GB                                                            |
 | Cooler      | Noctua NH-U14S TR4-SP3 for AMD sTRX4/TR4/SP3 (140mm, Brown) Noctua NF-A15 PWM  |
 | Fan         | Noctua NF-A15 PWM, Premium Quiet Fan, 4-Pin (140mm, Brown)                     |
 | Case        | Raijintek Thetis Aluminium ATX case                                            |
 
 ## Build:
 
-I was quite happy with the build. It's fairly small, powerful, quite and the power consumption isn't bad. 
+I was quite happy with the build. It's fairly small, powerful, quite and the power consumption isn't bad.
 
 ![homeserver](misc/homeserver_build.jpg)
 

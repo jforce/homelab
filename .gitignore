@@ -2,3 +2,4 @@ ansible/.vault_pass.txt
 ansible/homelab-ocp-build/vars/vars_in_a_vault.yaml
 misc/network.md
 misc/plan.md
+misc/clusterconfig/*

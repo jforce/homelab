@@ -1,0 +1,59 @@
+apiVersion: hco.kubevirt.io/v1beta1
+kind: HyperConverged
+metadata:
+  annotations:
+    deployOVS: "false"
+  labels:
+    app: kubevirt-hyperconverged
+  name: kubevirt-hyperconverged
+  namespace: openshift-cnv
+spec:
+  applicationAwareConfig:
+    allowApplicationAwareClusterResourceQuota: false
+    vmiCalcConfigName: DedicatedVirtualResources
+  certConfig:
+    ca:
+      duration: 48h0m0s
+      renewBefore: 24h0m0s
+    server:
+      duration: 24h0m0s
+      renewBefore: 12h0m0s
+  evictionStrategy: None
+  permittedHostDevices:
+    pciHostDevices:
+    - pciDeviceSelector: "10DE:1bb3"
+      resourceName: "nvidia.com/GP104GL_Tesla_P4"
+  featureGates:
+    alignCPUs: false
+    autoResourceLimits: false
+    deployKubeSecondaryDNS: false
+    deployTektonTaskResources: false
+    deployVmConsoleProxy: false
+    disableMDevConfiguration: false
+    downwardMetrics: false
+    enableApplicationAwareQuota: false
+    enableCommonBootImageImport: true
+    enableManagedTenantQuota: false
+    nonRoot: true
+    persistentReservation: false
+    withHostPassthroughCPU: false
+  higherWorkloadDensity:
+    memoryOvercommitPercentage: 100
+  liveMigrationConfig:
+    allowAutoConverge: false
+    allowPostCopy: false
+    completionTimeoutPerGiB: 800
+    parallelMigrationsPerCluster: 5
+    parallelOutboundMigrationsPerNode: 2
+    progressTimeout: 150
+  resourceRequirements:
+    vmiCPUAllocationRatio: 10
+  uninstallStrategy: BlockUninstallIfWorkloadsExist
+  virtualMachineOptions:
+    disableFreePageReporting: false
+    disableSerialConsoleLog: true
+  workloadUpdateStrategy:
+    batchEvictionInterval: 1m0s
+    batchEvictionSize: 10
+    workloadUpdateMethods:
+    - LiveMigrate
