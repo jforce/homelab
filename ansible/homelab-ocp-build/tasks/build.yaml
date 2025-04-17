@@ -36,16 +36,16 @@
 
 - name: Render templated build files
   ansible.builtin.template:
-    src: install-config.yaml.j2 
+    src: install-config.yaml.j2
     dest: "{{ ansible_env.HOME }}/ocp/shenzhen/install-config.yaml"
 
-- name: Download latest openshift-install binary
-  ansible.builtin.get_url:
-    url: https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/stable/openshift-install-linux.tar.gz 
-    decompress: true
-    dest: /usr/local/bin
-    mode: '0755'
-  become: true
+#- name: Download latest openshift-install binary
+#  ansible.builtin.get_url:
+#    url: https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/stable/openshift-install-linux.tar.gz
+#    decompress: true
+#    dest: /usr/local/bin
+#    mode: '0755'
+#  become: true
 
 - name: Build ocp assisted installer bootable image
   shell: openshift-install --dir "{{ ansible_env.HOME }}"/ocp/shenzhen agent create image
